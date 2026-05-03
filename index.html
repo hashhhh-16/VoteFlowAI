@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteFlow AI - Civic Completion Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>VoteFlow AI</h1>
+                    <span class="tagline">Personalized Election Guidance</span>
+                </div>
+            </div>
+            <button class="reset-btn" id="resetChatBtn" title="Start a new session">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                </svg>
+                Reset
+            </button>
+        </header>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container" id="chatContainer">
+            <!-- Welcome Message (Initial State) -->
+            <div class="message ai-message welcome-message">
+                <div class="message-content">
+                    <p class="greeting">Welcome to VoteFlow AI</p>
+                    <p>I help citizens complete their election journey with clear, practical, and step-by-step support.</p>
+                    <p><strong>From confusion to completion — your election journey, simplified.</strong></p>
+                    <div class="how-it-works-section">
+                        <h4 class="how-it-works-title">How VoteFlow AI Works</h4>
+                        <div class="how-it-works-steps">
+                            <div class="step-item"><span class="step-label">Step 1 &rarr;</span> Tell me your issue</div>
+                            <div class="step-item"><span class="step-label">Step 2 &rarr;</span> I identify the problem</div>
+                            <div class="step-item"><span class="step-label">Step 3 &rarr;</span> I simplify the process</div>
+                            <div class="step-item"><span class="step-label">Step 4 &rarr;</span> I guide your next steps</div>
+                            <div class="step-item"><span class="step-label">Step 5 &rarr;</span> I connect you to official help if needed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Options (Initial State) -->
+            <div class="quick-actions" id="quickActions">
+                <button class="action-card" data-scenario="first_time">
+                    <div class="card-icon">👋</div>
+                    <div class="card-text">
+                        <h3>First-Time Voter</h3>
+                        <p>I need help registering and voting for the first time.</p>
+                    </div>
+                </button>
+                <button class="action-card" data-scenario="missing_name">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-text">
+                        <h3>Missing from Voter List</h3>
+                        <p>My name is not on the voter list.</p>
+                    </div>
+                </button>
+                <button class="action-card" data-scenario="lost_id">
+                    <div class="card-icon">🚨</div>
+                    <div class="card-text">
+                        <h3>Lost Voter ID</h3>
+                        <p>It's polling day and I can't find my ID.</p>
+                    </div>
+                </button>
+                <button class="action-card" data-scenario="candidates">
+                    <div class="card-icon">📊</div>
+                    <div class="card-text">
+                        <h3>Know Candidates</h3>
+                        <p>Help me understand candidate details.</p>
+                    </div>
+                </button>
+                <button class="action-card" data-scenario="complaint">
+                    <div class="card-icon">📣</div>
+                    <div class="card-text">
+                        <h3>File Complaint</h3>
+                        <p>I need to report an election issue.</p>
+                    </div>
+                </button>
+            </div>
+            
+            <div class="premium-feature-container" id="premiumFeatureContainer">
+                <button class="premium-btn action-card" data-scenario="explain_simple">
+                    <div class="card-icon premium-icon">✨</div>
+                    <div class="card-text">
+                        <h3>Explain Like I’m a First-Time Voter</h3>
+                        <p>Simplify complex election language into easy, plain steps.</p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Dynamic Chat Log -->
+            <div class="chat-log" id="chatLog"></div>
+        </main>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <form id="chatForm">
+                <input type="text" id="userInput" placeholder="Describe your situation (e.g., 'My voter ID is missing')" autocomplete="off">
+                <button type="submit" class="send-btn" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+            <div class="footer-note">
+                VoteFlow AI provides neutral, step-by-step guidance. Do not share sensitive personal numbers.
+                <div class="trust-footer">Powered by Neutral Civic AI</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
